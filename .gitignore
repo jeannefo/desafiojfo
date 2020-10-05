@@ -7,6 +7,13 @@ target/
 # Compiled class file
 *.class
 
+node_modules
+typings
+jspm_packages
+bower_components
+app/**/*.js
+app/**/*.map
+
 ### STS ###
 .apt_generated
 .classpath
