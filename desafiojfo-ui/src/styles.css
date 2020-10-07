@@ -1,0 +1,35 @@
+body{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+label{
+  font-weight: bold;
+}
+
+@media(min-width: 1200px){
+  .container{
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.col-data-header {
+  width: 120px;
+}
+
+.col-data-content {
+  text-align: center;
+}
+
+.col-cpf-header {
+  width: 150px;
+}
+
+.col-cpf-content {
+  text-align: center;
+}
+
+.col-acoes-header{
+  width: 120px;
+}

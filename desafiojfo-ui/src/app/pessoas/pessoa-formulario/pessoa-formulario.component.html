@@ -1,0 +1,68 @@
+<div class="container">
+  <form autocomplete="off" #pessoaForm="ngForm" (ngSubmit)="salvar(pessoaForm)">
+
+    <div class="p-grid">
+      <div class="p-col-12">
+        <h1>{{isEditando ? 'Edição de ' : 'Nova'}} Pessoa</h1>
+      </div>
+    </div>
+
+    <div class="p-grid">
+      <div class="p-col-12 p-md-6 p-fluid">
+        <label>Nome</label>
+        <input pInputText type="text" minlength="4" id="nome" name="nome"
+          [(ngModel)]="pessoa.nome" #nome="ngModel"
+          required>
+
+        <app-message [control]="nome" error="required" text="Informe um nome"></app-message>
+        <!--app-message [control]="nome" error="minlength" text="Mínimo de {{ nome.errors?.minlength?.requiredLength }} caracteres. Você digitou apenas
+        {{ nome.errors?.minlength?.actualLength }}"></app-message-->
+
+      </div>
+
+      <div class="p-col-12 p-md-2 p-fluid">
+        <label>CPF:</label>
+        <p-inputMask id="cpf" mask="999.999.999-99" name="cpf" [(ngModel)]="pessoa.cpf" ngModel #cpf required ></p-inputMask>
+
+      </div>
+
+      <div class="p-col-6 p-md-2 p-fluid">
+        <label>Nascimento:</label>
+        <p-inputMask id="dataNascimento" mask="99/99/9999" name="dataNascimento" [(ngModel)]="pessoa.dataNascimento" #dataNascimento
+          required></p-inputMask>
+        </div>
+
+      <div class="p-col-6 p-md-2 p-fluid">
+        <label>Sexo:</label>
+        <p-dropdown id="sexo" [options]="sexos" name="sexo" [{ngModel}]="pessoa.sexo"
+        ngModel required #sexo placeholder="Selecione"></p-dropdown>
+      </div>
+
+      <div class="p-col-12 p-md-6 p-fluid">
+        <label>E-mail</label>
+        <input pInputText type="text" id="email" name="email" [(ngModel)]="pessoa.email" #email email>
+      </div>
+
+      <div class="p-col-6  p-md-3 p-fluid">
+        <label>Naturalidade</label>
+        <input pInputText type="text" id="naturalidade" name="naturalidade" [(ngModel)]="pessoa.naturalidade" #naturalidade>
+      </div>
+
+      <div class="p-col-6  p-md-3 p-fluid">
+        <label>Nacionalidade</label>
+        <input pInputText type="text" id="nacionalidade" name="nacionalidade" [(ngModel)]="pessoa.nacionalidade" #nacionalidade>
+      </div>
+
+
+
+      <div class="p-col-12">
+        <button pButton type="submit" label="Salvar" [disabled]="pessoaForm.invalid"></button>
+        <button pButton type="button" label="Novo" class="p-button-info" [routerLink]="['/pessoas', 'novo']" routerLinkActive="router-link-active" ></button>
+        <a routerLink="/pessoas">Voltar para a pesquisa</a>
+      </div>
+
+
+    </div>
+
+  </form>
+</div>
