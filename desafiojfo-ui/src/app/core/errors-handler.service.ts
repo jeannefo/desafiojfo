@@ -13,7 +13,8 @@ export class ErrorsHandlerService {
     if (typeof errorResponse === 'string') {
       msg = errorResponse;
     } else {
-      msg = 'Erro ao processar serviço remoto. Tente novamente.';
+      msg = `Erro ao processar serviço remoto. Tente novamente. ${errorResponse.message}`;
+      console.log(errorResponse);
       console.error('Ocorreu um erro', errorResponse);
     }
 

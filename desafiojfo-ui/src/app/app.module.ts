@@ -6,15 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { PessoasModule } from './pessoas/pessoas.module';
-import { RouterModule, Routes } from '@angular/router';
-import { PessoasPequisaComponent } from './pessoas/pessoas-pequisa/pessoas-pequisa.component';
-import { PessoaFormularioComponent } from './pessoas/pessoa-formulario/pessoa-formulario.component';
-
-const routes: Routes = [
-  { path: 'pessoas', component: PessoasPequisaComponent },
-  { path: 'pessoas/novo', component: PessoaFormularioComponent },
-  { path: 'pessoas/:codigo', component: PessoaFormularioComponent }
-];
+import { AppRoutingModule } from './app-routing.module';
+import { SegurancaModule } from './seguranca/seguranca.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,11 +16,13 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
+
     CoreModule,
-    RouterModule.forRoot(routes),
-    PessoasModule
+    PessoasModule,
+    SegurancaModule,
+    AppRoutingModule
   ],
   bootstrap: [AppComponent]
 })

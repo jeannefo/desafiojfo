@@ -11,7 +11,7 @@ export class PessoaFilter {
   cpf: string;
   sexo: string;
   pagina = 0;
-  itensPorPagina = 2;
+  itensPorPagina = 4;
 }
 
 @Injectable()

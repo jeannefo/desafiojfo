@@ -41,21 +41,24 @@ export class PessoasPequisaComponent implements OnInit {
     }
 
     this.pessoaService.pesquisar(this.filtro).then(resultado => {
+      console.log(resultado);
       this.totalRegistros = resultado.total;
       this.pessoas = resultado.pessoas;
     })
-    .catch(erro => this.errorHandler.handle(erro));
+      .catch(erro => {
+        console.log('Erro na pesquisa');
+        console.log(erro);
+        this.errorHandler.handle(erro);
+    });
 
   }
 
-  aoMudarPagina(event: LazyLoadEvent) {
-    console.log(event);
+  aoMudarPagina(event: LazyLoadEvent): void {
     const pagina = event.first / event.rows;
     this.pesquisar(pagina);
-    console.log(pagina);
   }
 
-  confirmarExclusao(pessoa: any) {
+  confirmarExclusao(pessoa: any): void {
     this.confirmationService.confirm({
       message: 'Tem certeza que deseja realizar a operação?',
       accept: () => {
@@ -64,7 +67,7 @@ export class PessoasPequisaComponent implements OnInit {
     });
   }
 
-  excluir(pessoa: any) {
+  excluir(pessoa: any): void {
     this.pessoaService.excluir(pessoa.codigo)
       .then(() => {
         this.grid.reset();

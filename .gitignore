@@ -54,16 +54,16 @@ hs_err_pid*
 /desafiojfo-ui/node_modules
 
 # profiling files
-chrome-profiler-events*.json
-speed-measure-plugin*.json
+/desafiojfo-ui/chrome-profiler-events*.json
+/desafiojfo-ui/speed-measure-plugin*.json
 
 # IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
+/desafiojfo-ui/.vscode/*
+/desafiojfo-ui/!.vscode/settings.json
+/desafiojfo-ui/!.vscode/tasks.json
+/desafiojfo-ui/!.vscode/launch.json
+/desafiojfo-ui/!.vscode/extensions.json
+/desafiojfo-ui/.history/*
 
 # misc
 /.sass-cache

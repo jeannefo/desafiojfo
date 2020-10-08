@@ -17,6 +17,7 @@ import { PessoaFormularioComponent } from './pessoa-formulario/pessoa-formulario
 import { PessoasPequisaComponent } from './pessoas-pequisa/pessoas-pequisa.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { PessoasRountingModule } from './pessoas-routing.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { RouterModule } from '@angular/router';
     NoopAnimationsModule,
     InputMaskModule,
     SharedModule,
-    RouterModule
+    PessoasRountingModule
   ], exports: [
     PessoaFormularioComponent,
     PessoasPequisaComponent

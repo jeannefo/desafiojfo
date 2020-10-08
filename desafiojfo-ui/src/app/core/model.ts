@@ -1,7 +1,7 @@
 export class Pessoa {
   codigo: string;
   nome: string;
-  sexo: string;
+  sexo: any;
   email: string;
   dataNascimento: Date;
   naturalidade: string;

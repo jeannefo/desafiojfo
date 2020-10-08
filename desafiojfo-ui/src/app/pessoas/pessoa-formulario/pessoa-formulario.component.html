@@ -34,8 +34,9 @@
 
       <div class="p-col-6 p-md-2 p-fluid">
         <label>Sexo:</label>
-        <p-dropdown id="sexo" [options]="sexos" name="sexo" [{ngModel}]="pessoa.sexo"
-        ngModel required #sexo placeholder="Selecione"></p-dropdown>
+
+        <p-dropdown id="sexo" name="sexo" [options]="sexos"  [(ngModel)]="pessoa.sexo"
+        required #sexo placeholder="Selecione" [showClear]="true"></p-dropdown>
       </div>
 
       <div class="p-col-12 p-md-6 p-fluid">
@@ -57,7 +58,7 @@
 
       <div class="p-col-12">
         <button pButton type="submit" label="Salvar" [disabled]="pessoaForm.invalid"></button>
-        <button pButton type="button" label="Novo" class="p-button-info" [routerLink]="['/pessoas', 'novo']" routerLinkActive="router-link-active" ></button>
+        <button pButton type="button" label="Novo" class="p-button-info" (click)="novo(pessoaForm)" ></button>
         <a routerLink="/pessoas">Voltar para a pesquisa</a>
       </div>
 

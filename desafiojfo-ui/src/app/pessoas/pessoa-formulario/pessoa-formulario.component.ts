@@ -5,6 +5,7 @@ import { MessageService } from 'primeng/api';
 import { ErrorsHandlerService } from 'src/app/core/errors-handler.service';
 import { Pessoa } from 'src/app/core/model';
 import { PessoaServiceService } from '../pessoa-service.service';
+import { SelectItem } from 'primeng/api';
 
 @Component({
   selector: 'app-pessoa-formulario',
@@ -15,8 +16,9 @@ export class PessoaFormularioComponent implements OnInit {
 
   pessoa = new Pessoa();
 
-  sexos = [];
-  sexoSelecionado: any;
+  sexos: SelectItem[];
+  previousVal: any;
+  currentVal: any;
 
   constructor(
     private pessoaService: PessoaServiceService,
@@ -26,24 +28,20 @@ export class PessoaFormularioComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    this.carregarSexos();
+
     const codigoPessoa = this.route.snapshot.params['codigo'];
     if (codigoPessoa) {
       this.carregarPessoa(codigoPessoa);
     }
-    this.carregarSexos();
-    console.log('Sexos: ');
-    console.log(this.sexos);
+    console.log(this.pessoa);
   }
 
   carregarSexos(): void {
-    this.pessoaService.buscarOpcoesSexo()
-      .then(opcoes => {
-        console.log('Opções: ');
-        console.log(opcoes);
-        this.sexos = opcoes.map(c => ({ label: c.descricao, value: c.codigo }));
-        console.log(this.sexos);
-      })
-      .catch(erro => this.errorHandler.handle(erro));
+    this.sexos = [
+      { label: 'Feminino', value: 'F' },
+      { label: 'Masculino', value: 'M' }
+    ]
   }
 
   get isEditando(): boolean {
@@ -57,19 +55,19 @@ export class PessoaFormularioComponent implements OnInit {
       }).catch(erro => this.errorHandler.handle(erro));
   }
 
-  getValue(changedValue): void {
-    this.pessoa.sexo = changedValue.value;
-  }
-
   salvar(form: NgForm): void {
-
     this.pessoaService.adicionar(this.pessoa)
-      .then(() => {
+      .then(pessoaAdicionada => {
         this.messageService.add({ severity: 'success', summary: 'CADASTRAR PESSOA', detail: 'Pessoa adicionada com sucesso' });
-        this.router.navigate(['/pessoas', this.pessoa.codigo]);
+        this.router.navigate(['/pessoas', pessoaAdicionada.codigo]);
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
 
+  novo(form: NgForm): void {
+    form.reset();
+    this.pessoa = new Pessoa();
+    this.router.navigate(['/pessoas/novo']);
+  }
 
 }
