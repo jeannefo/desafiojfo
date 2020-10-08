@@ -7,6 +7,7 @@ public class DesafioJfoProperty {
 
 	private boolean enableHttps;
 	private String originPermitida = "http://localhost:4200";
+//	private String originPermitida = "http://localhost:8080";
 
 	public String getOriginPermitida() {
 		return originPermitida;

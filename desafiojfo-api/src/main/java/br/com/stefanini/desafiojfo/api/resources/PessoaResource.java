@@ -80,4 +80,6 @@ public class PessoaResource {
 	public List<Pessoa> obterPessoasNascidasIntervalo(@RequestParam String de, @RequestParam String ate) {
 		return this.pessoaService.obterPessoasNascidasIntervalo(LocalDate.parse(de), LocalDate.parse(ate));
 	}
+
+
 }

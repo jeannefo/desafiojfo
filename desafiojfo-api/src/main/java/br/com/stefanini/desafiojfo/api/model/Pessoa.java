@@ -8,11 +8,14 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.UniqueElements;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import br.com.stefanini.desafiojfo.api.model.enums.SexoEnum;
 
 @Document(collection = "pessoa")
 public class Pessoa {
@@ -22,11 +25,11 @@ public class Pessoa {
 	@NotNull
 	@Size(min = 3)
 	private String nome;
-	@Size(min = 1, max = 1)
-	private String sexo;
+	private SexoEnum sexo;
 	@Email
 	private String email;
 	@NotNull
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataNascimento;
 	private String naturalidade;
 	private String nacionalidade;
@@ -36,7 +39,9 @@ public class Pessoa {
 	@Indexed(unique = true)
 	private String cpf;
 
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dataCadastro;
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dataAtualizacao;
 
 	public String getCodigo() {
@@ -53,14 +58,6 @@ public class Pessoa {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getSexo() {
-		return sexo;
-	}
-
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
 	}
 
 	public String getEmail() {
@@ -142,6 +139,14 @@ public class Pessoa {
 		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
+	}
+
+	public SexoEnum getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(SexoEnum sexo) {
+		this.sexo = sexo;
 	}
 
 }

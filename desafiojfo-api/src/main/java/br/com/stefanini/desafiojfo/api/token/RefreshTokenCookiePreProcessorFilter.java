@@ -26,7 +26,9 @@ public class RefreshTokenCookiePreProcessorFilter implements Filter {
 			throws IOException, ServletException {
 
 		HttpServletRequest req = (HttpServletRequest) request;
+		
 		if (req.getRequestURI().equalsIgnoreCase("/oauth/token")
+				&& req.getParameter("grant_type") != null
 				&& req.getParameter("grant_type").equals("refresh_token") && req.getCookies() != null) {
 
 			String refreshToken = Stream.of(req.getCookies()).filter(cookie -> "refreshToken".equals(cookie.getName()))
