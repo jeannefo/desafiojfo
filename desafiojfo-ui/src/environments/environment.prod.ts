@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiURL: 'https://desafio-jfo-angular.herokuapp.com'
 };

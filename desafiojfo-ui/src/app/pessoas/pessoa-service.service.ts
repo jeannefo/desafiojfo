@@ -5,6 +5,7 @@ import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Pessoa } from '../core/model';
 import * as moment from 'moment';
+import { environment } from 'src/environments/environment';
 
 export class PessoaFilter {
   nome: string;
@@ -17,10 +18,12 @@ export class PessoaFilter {
 @Injectable()
 export class PessoaServiceService {
 
-  readonly pessoasUrl = 'http://localhost:8080/pessoas';
+  pessoasUrl: string;
   readonly token = 'Basic YWRtaW46YWRtaW4=';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.pessoasUrl = `${environment.apiURL}/pessoas`;
+  }
 
   pesquisar(filtro: PessoaFilter): Promise<any> {
     let params = new HttpParams();

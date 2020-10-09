@@ -21,8 +21,8 @@ export class LoginFormComponent implements OnInit {
 
   autenticar(login: string, senha: string): void {
 
-    this.authService.autenticar(login, senha);
-    //this.messageService.add({ severity: 'error', summary: 'FALHA', detail: 'Autenticação ainda não está pronta' });
+    //this.authService.autenticar(login, senha);
+    this.messageService.add({ severity: 'error', summary: 'FALHA', detail: 'Autenticação ainda não está pronta' });
   }
 
 }

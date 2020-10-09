@@ -29,8 +29,8 @@
 		* ng serve (default porta -4200)
 		
 	
-## ENDPOINTS - API
-		
+## ENDPOINTS - POSTMAN (desafiojfo-api\doc\postman\stefanini-desafiojfo.postman_collection.json)
+	
 * Obter token - post
 ** https://desafio-jfo.herokuapp.com/oauth/token
 
