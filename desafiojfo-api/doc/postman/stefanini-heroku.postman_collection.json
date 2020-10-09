@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "294a1819-bc67-4751-b276-cd8c820b1600",
+		"name": "stefanini-heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obter token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "@ngul@r0",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "angular",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "client",
+							"value": "angular",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://desafio-jfo.herokuapp.com/oauth/token",
+					"protocol": "https",
+					"host": [
+						"desafio-jfo",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pessoas - Listar",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDIyNDQ3NDksInVzZXJfbmFtZSI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9ST0xFIl0sImp0aSI6IjQ5ZWEzMjMyLTY2NWUtNDRmNi05NjE2LWY3N2UxNWE5YWVhMyIsImNsaWVudF9pZCI6ImFuZ3VsYXIiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.9FJbcpHkLclvktxEXINrWbE2VakPQ1ik_pXyMNm9BMM",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://desafio-jfo.herokuapp.com/pessoas",
+					"protocol": "https",
+					"host": [
+						"desafio-jfo",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"pessoas"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
