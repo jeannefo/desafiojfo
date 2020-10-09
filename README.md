@@ -28,6 +28,7 @@
 		* ng install (baixar todas os pacotes)
 		* ng serve (default porta -4200)
 		* ng build --prod (gerar o dist)
+		* node server.js (simular requisições com node.js e express)
 		
 	
 ## ENDPOINTS - POSTMAN (desafiojfo-api\doc\postman\stefanini-desafiojfo.postman_collection.json)
