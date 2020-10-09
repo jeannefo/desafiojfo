@@ -58,7 +58,7 @@ export class PessoaFormularioComponent implements OnInit {
   salvar(form: NgForm): void {
     this.pessoaService.adicionar(this.pessoa)
       .then(pessoaAdicionada => {
-        this.messageService.add({ severity: 'success', summary: 'CADASTRAR PESSOA', detail: 'Pessoa adicionada com sucesso' });
+        this.messageService.add({ severity: 'success', summary: 'PESSOA', detail: 'Pessoa salva com sucesso' });
         this.router.navigate(['/pessoas', pessoaAdicionada.codigo]);
       })
       .catch(erro => this.errorHandler.handle(erro));

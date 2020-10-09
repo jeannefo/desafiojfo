@@ -53,6 +53,9 @@ hs_err_pid*
 # dependencies
 /desafiojfo-ui/node_modules
 
+#dist
+/desafiojfo-ui/dist
+
 # profiling files
 /desafiojfo-ui/chrome-profiler-events*.json
 /desafiojfo-ui/speed-measure-plugin*.json
